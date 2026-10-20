@@ -90,6 +90,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Watch & Shop */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-xs tracking-[0.25em] uppercase text-accent">Watch & Shop</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-green-900 mt-2">See our remedies in action</h2>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+          {[
+            { src: '/videos/1.mp4', title: 'Amrit Rasayan — Immunity Booster', aspect: 'aspect-video' },
+            { src: '/videos/3.mp4', title: 'Queen Forte Syrup — Women’s Health', aspect: 'aspect-[9/16]' },
+            { src: '/videos/6.mp4', title: 'Gut Health & Daily Energy', aspect: 'aspect-[9/16]' },
+          ].map((v) => (
+            <div key={v.src} className="group">
+              <div className={`${v.aspect} rounded-3xl overflow-hidden bg-sand`}>
+                <video src={v.src} title={v.title} controls muted playsInline preload="metadata" className="w-full h-full object-cover" />
+              </div>
+              <p className="mt-3 text-sm font-medium text-green-900">{v.title}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Trust strip */}
       <section className="bg-sand/60">
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-8 text-center">
