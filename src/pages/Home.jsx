@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden hero-gradient">
         <div className="max-w-7xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-xs tracking-[0.25em] uppercase text-accent mb-5">Authentic Ayurveda · Since 1867</p>

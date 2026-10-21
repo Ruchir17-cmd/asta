@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function ProductCard({ product: p }) {
   return (
     <Link to={`/product/${p.slug}`} className="group block">
-      <div className="aspect-square rounded-2xl overflow-hidden bg-sand relative">
+      <div className="aspect-square rounded-2xl overflow-hidden bg-sand relative tilt-card">
         <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         {p.mrp && p.price && p.mrp > p.price && (
           <span className="absolute top-3 left-3 text-[10px] tracking-wider uppercase bg-white/90 text-green-900 px-2 py-1 rounded-full">

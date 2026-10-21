@@ -1,3 +1,6 @@
+import { lazy, Suspense } from 'react'
+const Scene3D = lazy(() => import('../components/Scene3D.jsx'))
+
 export default function About() {
   return (
     <div>
@@ -32,6 +35,18 @@ export default function About() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-xs tracking-[0.25em] uppercase text-accent">Interactive</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-green-900 mt-2">Wellness, seen in 3D</h2>
+          </div>
+        </div>
+        <Suspense fallback={<div className="w-full h-[420px] rounded-3xl bg-sand animate-pulse" />}>
+          <Scene3D />
+        </Suspense>
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-20 text-center">

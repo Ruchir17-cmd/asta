@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { Mail, Phone, MapPin } from 'lucide-react'
+const Scene3D = lazy(() => import('../components/Scene3D.jsx'))
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -32,6 +33,11 @@ export default function Contact() {
           <div className="flex gap-3"><MapPin size={18} className="text-green-900 shrink-0" /> SK1, Compound Lasudia Mori, Dewas Naka, Indore 452010</div>
           <div className="flex gap-3"><Phone size={18} className="text-green-900 shrink-0" /> <a href="tel:8518888805" className="hover:text-green-900">8518888805</a></div>
           <div className="flex gap-3"><Mail size={18} className="text-green-900 shrink-0" /> <a href="mailto:astavakraayurved18@gmail.com" className="hover:text-green-900">astavakraayurved18@gmail.com</a></div>
+        </div>
+        <div className="mt-8">
+          <Suspense fallback={<div className="w-full h-[260px] rounded-3xl bg-sand animate-pulse" />}>
+            <Scene3D />
+          </Suspense>
         </div>
       </div>
 
