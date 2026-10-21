@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import { ArrowRight, Leaf, ShieldCheck, Award, Heart } from 'lucide-react'
 import { products } from '../data/products.js'
 import ProductCard from '../components/ProductCard.jsx'
+const Scene3D = lazy(() => import('../components/Scene3D.jsx'))
 
 const featured = products.slice(0, 4)
 
@@ -112,6 +114,19 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* 3D showcase */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-xs tracking-[0.25em] uppercase text-accent">Interactive</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-green-900 mt-2">Explore our wellness in 3D</h2>
+          </div>
+        </div>
+        <Suspense fallback={<div className="w-full h-[420px] rounded-3xl bg-sand animate-pulse" />}>
+          <Scene3D />
+        </Suspense>
       </section>
 
       {/* Trust strip */}
