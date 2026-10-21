@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <Link to="/shop" className="hidden md:inline text-sm text-neutral-600 hover:text-green-900">View all →</Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {[
             { slug: 'weight-management', name: 'Weight Management', icon: Leaf },
             { slug: 'women-health', name: "Women's Health", icon: Heart },
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
           <Link to="/shop" className="hidden md:inline text-sm text-neutral-600 hover:text-green-900">View all →</Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
           {featured.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
@@ -100,7 +100,7 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-4xl text-green-900 mt-2">See our remedies in action</h2>
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {[
             { src: '/videos/1.mp4', title: 'Amrit Rasayan — Immunity Booster', aspect: 'aspect-video' },
             { src: '/videos/3.mp4', title: 'Queen Forte Syrup — Women’s Health', aspect: 'aspect-[9/16]' },

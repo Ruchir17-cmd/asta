@@ -3,7 +3,9 @@ import Navbar from './components/Navbar.jsx'
 import AnnouncementBar from './components/AnnouncementBar.jsx'
 import Footer from './components/Footer.jsx'
 import TelegramWidget from './components/TelegramWidget.jsx'
+import CartDrawer from './components/CartDrawer.jsx'
 import Home from './pages/Home.jsx'
+import Cart from './pages/Cart.jsx'
 import About from './pages/About.jsx'
 import Shop from './pages/Shop.jsx'
 import Product from './pages/Product.jsx'
@@ -23,11 +25,13 @@ export default function App() {
           <Route path="/shop/:concern" element={<Shop />} />
           <Route path="/product/:slug" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </main>
       <Footer />
       <TelegramWidget />
+      <CartDrawer />
     </div>
   )
 }

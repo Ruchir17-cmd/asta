@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getProduct, concerns } from '../data/products.js'
-import { ArrowLeft, Check } from 'lucide-react'
+import { ArrowLeft, Check, ShoppingBag } from 'lucide-react'
+import { useCart } from '../context/CartContext.jsx'
 
 export default function Product() {
   const { slug } = useParams()
   const p = getProduct(slug)
+  const { addItem, openCart } = useCart()
+  const [added, setAdded] = useState(false)
   if (!p) return (
     <div className="max-w-7xl mx-auto px-6 py-20 text-center">
       <p>Product not found.</p>
@@ -55,8 +59,14 @@ export default function Product() {
           </div>
 
           <div className="mt-8 flex gap-3">
-            <button className="flex-1 bg-green-900 text-cream py-3 rounded-full text-sm hover:bg-green-800 transition">
-              Add to Cart
+            <button
+              onClick={() => { addItem(p); setAdded(true); setTimeout(() => setAdded(false), 1500) }}
+              className="flex-1 bg-green-900 text-cream py-3 rounded-full text-sm hover:bg-green-800 transition inline-flex items-center justify-center gap-2"
+            >
+              <ShoppingBag size={16} /> {added ? 'Added!' : 'Add to Cart'}
+            </button>
+            <button onClick={openCart} className="flex-1 border border-neutral-300 py-3 rounded-full text-sm text-center hover:border-green-900 transition">
+              View Cart
             </button>
             <a href="https://wa.me/918518888805" className="flex-1 border border-neutral-300 py-3 rounded-full text-sm text-center hover:border-green-900 transition">
               Enquire on WhatsApp

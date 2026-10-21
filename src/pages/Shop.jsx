@@ -29,7 +29,7 @@ export default function Shop() {
       {list.length === 0 ? (
         <p className="text-neutral-500">No products found.</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {list.map((p) => <ProductCard key={p.slug} product={p} />)}
         </div>
       )}

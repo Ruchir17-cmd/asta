@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ShoppingBag, Search } from 'lucide-react'
 import { concerns } from '../data/products.js'
+import { useCart } from '../context/CartContext.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [shopOpen, setShopOpen] = useState(false)
+  const { count, openCart } = useCart()
 
   const linkClass = ({ isActive }) =>
     `text-sm tracking-wide transition-colors ${isActive ? 'text-green-900' : 'text-neutral-600 hover:text-green-900'}`
@@ -48,7 +50,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <button className="p-2 text-neutral-600 hover:text-green-900" aria-label="Search"><Search size={18} /></button>
-          <button className="p-2 text-neutral-600 hover:text-green-900" aria-label="Cart"><ShoppingBag size={18} /></button>
+          <button onClick={openCart} className="relative p-2 text-neutral-600 hover:text-green-900" aria-label="Cart">
+            <ShoppingBag size={18} />
+            {count > 0 && (
+              <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-green-900 text-cream text-[10px] flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </button>
           <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Menu">
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
