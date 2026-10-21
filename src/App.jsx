@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
+import AnnouncementBar from './components/AnnouncementBar.jsx'
 import Footer from './components/Footer.jsx'
+import TelegramWidget from './components/TelegramWidget.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Shop from './pages/Shop.jsx'
@@ -11,6 +13,7 @@ import FAQ from './pages/FAQ.jsx'
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1">
         <Routes>
@@ -24,6 +27,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <TelegramWidget />
     </div>
   )
 }
